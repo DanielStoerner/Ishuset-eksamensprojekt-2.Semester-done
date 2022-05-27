@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    box-sizing: 0;
+}
+
+/* footer på com */
+footer #pc_footer {
+    width: 100%;
+}
+
+footer #mobile_footer {
+    display: none;
+}
+
+#bg_farve {
+    padding-top: 100px;
+    margin-top: -10px;
+    background-color: #215DAB;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5%;
+}
+
+#bg_farve p {
+    color:white;
+}
+
+/* boks under footer inkl. tekst */
+#footer_indhold {
+    height: 300px;
+    font-size: 20px;
+    color: white;
+    line-height: 40px;  
+}
+
+#copyright, #socials {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+ 
+}
+
+#copyright {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#socials i {
+    font-size: 40px;
+    letter-spacing: 10px;
+}
+
+#socials a {
+    color: white;
+}
+
+#socials {
+    text-align: right;
+}
+
+ /* kolonnerne i footeren får samme størrelse*/
+#socials, #copyright, #footer_indhold {
+width: 33%;
+}
+
+/* Vise mindre footer på mobil */
+@media only screen and (max-width: 800px) {
+    footer #pc_footer {
+        display: none;
+    }
+
+    footer #mobile_footer {
+        display: block;
+        width: 100%;
+    }
+
+    #footer_indhold {
+        text-align: center;
+        width: 100%;
+    }
+
+    #copyright, #socials {
+        width: 100%;
+        text-align: center;
+        padding: 3%;
+    }
+}

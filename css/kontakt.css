@@ -1,0 +1,834 @@
+/*
+
+INDHOLDSFORTEGNELSE 
+
+    Overordnet root styling / Linje 10
+    Nav-bar / Linje 79
+    Big photo / Linje 251
+    Main / Linje 347
+    Google maps / Linje 603
+    Footer  / Linje 657
+    Media queries til footer og nav / Linje 720
+
+*/
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Coolvetica";
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-weight: 500;
+    letter-spacing: 2px!important;
+    font-size: 32px;
+}
+    
+:root {
+    /* Denne farve bruges som hover-effekt i navbaren, til footeren, til knappen i Instagram-afsnittet og i vores h1'er i introteksten */
+    color: #215DAB;
+        /*Farven bliver brugt til baggrunden på nav*/
+    color: #89b3cf;
+     /*Farven bliver brugt til scroll up butten*/
+    --knapfarve: #c56e81;
+     /*Farven bliver brugt til baggrunden på body på samtlige sider*/
+    color: linear-gradient(white, #89b3cf); 
+     /*Farven bliver brugt til menupunker og skrift over big photo samt tekst i footer*/
+    color: white;
+    color: #f1f1f1;
+    color: rgb(255, 255, 255);
+     /*Farven bliver brugt til xxx*/
+    color: black;
+
+  }
+/* tilpasset scroll, så når man trykker på menu links */
+html{
+    scroll-behavior: smooth;
+}
+
+/* tilpasset scroll bar (farven ændres) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #89b3cf;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #89b3cf;
+}
+
+
+
+/* max width på menubaren */
+
+.max-width{
+    max-width: 2200px;
+    padding: 0 100px;    
+    margin-left: auto;
+    justify-content: space-between;
+
+}
+/* media query til computer skærm */
+
+.mobil {
+    display: none;
+}
+
+@media (max-width: 1920px){
+    
+/* navbar */ 
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 30px 0;
+    height: auto;
+    transition: all 1s ease;
+    justify-content: space-between;
+    
+}
+.navbar.sticky{
+    padding: 5px 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(0, 62, 78, 0), rgba(0, 0, 0, 0.785) 100%);
+    background-size: 80%;
+    height: 150px;
+}
+
+@media only screen and (max-width: 900px) {
+    .navbar.sticky{
+        background-color: #215DAB; 
+        background: linear-gradient(0deg, #113f7a8d, #143e7493 100%); 
+        height: 100px;
+    }
+    .logo img{
+        width:120px;
+        height: auto;
+        margin-left: -60px;
+    }
+}
+
+.navbar .max-width{
+    display: flex;
+    align-items: center;
+}
+.navbar .logo a{
+    color: rgb(255, 255, 255);
+    font-size: 5px;
+    font-weight: 600;
+    
+}
+.navbar .logo a span{
+    color:#89b3cf;
+    transition: all 0.3s ease;
+}
+.navbar.sticky .logo a span{
+    color: #fff;
+}
+
+.logo img{
+    width:120px;
+    height: auto;
+}
+
+ul{
+    display: inline-flex;
+    flex-shrink: 0;
+}
+
+
+.max-width {
+    padding-right: 20px;
+}
+
+.navbar i {
+    font-size: 40px;
+}
+
+.logonav {
+    filter: drop-shadow(3px 3px 3px #00000048);
+}
+    
+
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+    
+}
+.navbar .menu li a{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    margin-left: 25px;
+    transition: color 0.3s ease;
+}
+.navbar .menu li a:hover{
+    color: #c56e81;
+    text-shadow: 0 0 80px rgb(249, 249, 249), 0 0 32px rgba(245, 245, 245, 0.863); 
+}
+
+.navbar.sticky .menu li a:hover{
+    color: #c56e81;
+    text-shadow: 0 0 80px rgb(255, 255, 255), 0 0 32px rgba(255, 255, 255, 0.785).24;
+}
+
+.navbar .menu li a::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background:#efd5da;
+    display: block;
+    margin: auto;
+    height: auto;
+    transition: 0.5s;
+}
+.navbar .menu li a:hover::after{
+    width: 100%;
+    height: auto;
+}
+
+
+.menu {
+    padding-right: 5%;
+    left: 120px;
+}
+
+/* farven bag ved main farven på hele dokumentet */
+body{ 
+    background-image: linear-gradient(white, #89b3cf);  
+}
+
+/* menu knappen */
+.menu-btn{
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+
+
+
+
+
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: #c56e81;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    border-bottom-width: 2px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scroll-up-btn.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+.scroll-up-btn:hover{
+    filter: brightness(90%);
+}
+
+
+/* Headerbilledet */
+
+
+
+.header-kontakt {
+    min-height: 80vh;
+    width: 100%;
+    background: rgb(195,195,195);
+    background-image: linear-gradient(180deg,  rgba(153, 148, 148, 0.866) 0%, rgba(136, 136, 136, 0.521) 0%),url(../images-2/kontakt-header.webp); 
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+
+/* skjul chevron på big pic */
+.header-kontakt a {
+    visibility: hidden;
+}
+
+
+
+.text-box{
+    width: 90%;
+    color: rgba(255, 255, 255, 0.774);
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-5%);
+    text-align: center;
+}
+
+.text-box h2 {
+ letter-spacing: 3px;
+ line-height: 55px;
+font-weight: 400;
+font-size: 60px;
+color: white;
+}
+
+@media only screen and (max-width: 900px) {
+    .text-box h2 {
+        font-size: 6vw;
+    }
+}
+
+
+/* tekst på headerbilledet */
+
+
+
+.text-box a span {
+    position: absolute;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    margin-left: -12px;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: sdb05 1.5s infinite;
+    animation: sdb05 1.5s infinite;
+    box-sizing: border-box;
+    margin-top: 250px;
+    cursor: default;
+  }
+  @-webkit-keyframes sdb05 {
+    0% {
+      -webkit-transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+  }
+  @keyframes sdb05 {
+    0% {
+      transform: rotate(-45deg) translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(-45deg) translate(-20px, 20px);
+      opacity: 0;
+    }
+  }
+
+
+
+/* -------- FORMULAR FELTER ----------- */ 
+
+#bg_real {
+    overflow: hidden;
+}
+
+#bg_real h3 {
+    text-align: center;
+    padding-top:75px; 
+    font-size: 1.17em;
+    letter-spacing: 2px;
+}
+
+#bg_real h2 {
+    text-align: center;
+    color: #215DAB;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 32px;
+    width: 60%;
+    font-weight: 500;
+    height: auto;
+}
+
+#bg_farve_hvid {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 50px;
+   font-size: 20px;
+   height: auto;
+}
+
+
+
+#tekst-formular {
+    width: 40%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: -10px;
+    padding-right: 100px;
+    height: auto;
+}
+
+
+
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    height: auto;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: var(--knapfarve);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container_form {
+    border-radius: 5px;
+    padding: 20px;
+    width: 60%;
+    padding-left: 100px;
+    padding-right: 100px;
+    height: auto;
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+    height: auto;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+    height: auto;
+  }
+  
+  .row3 {
+      text-align: center;
+  }
+
+  #btnz {
+      margin-top: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 30px;
+      padding-right: 30px;
+      background-color: var(--knapfarve);
+      color: white;
+      border: 0;
+      font-size: 18px;
+      border-radius: 50px;
+      cursor: pointer;
+  }
+
+  #btnz:hover {
+      filter: brightness(90%);
+  }
+
+ 
+
+  /* Clear floats after the columns */
+  .row2:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .knap {
+    float: left;
+    padding-left: 27%;
+    padding-top: 20px;
+  }
+
+  input[type=submit] {
+    width: 18vw;
+    height: auto;
+  }
+
+  #siteInfo input[type="button"] {
+    background-color: var(--knapfarve);
+    color: white;
+    padding: 12px 270px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+  }
+  .btn {
+    padding: 1em 2.1em 1.1em;
+    border-radius: 3px;
+    margin: 8px 8px 8px 8px;
+    color: #fbdedb;
+    background-color: #fbdedb;
+    display: inline-block;
+    background: #e74c3c;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    font-family: sans-serif;
+    font-weight: 800;
+    font-size: .85em;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0em -0.3rem 0em rgba(0, 0, 0, 0.1) inset;
+    position: relative;
+}
+.btn:hover, .btn:focus {
+    opacity: 0.8;
+}
+.btn:active {
+    -webkit-transform: scale(0.80);
+    -moz-transform: scale(0.80);
+    -ms-transform: scale(0.80);
+    -o-transform: scale(0.80);
+    transform: scale(0.80);
+}
+.btn.block {
+    display: block !important;
+}
+.btn.circular {
+  border-radius: 50em !important;
+}
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 1000px) {
+
+    .col-25, .col-75 {
+        float: none;
+    }
+
+    #bg_farve_hvid {
+        display: block;
+        width: 90%;
+        height: auto;
+    }
+
+    .container_form {
+        margin: 0;
+        padding: 10px;
+      width: 90%;
+      display: block;
+      margin-top: 0;
+      margin: 0 auto;
+      height: auto;
+    }
+
+    input[type=submit], .knap {
+        width: 70vw;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+      }
+
+      .knap {
+          padding-left: 0px;
+          float: none;
+          margin: auto;
+      }
+
+      input[type=text], #subject {
+          display: block;
+          margin: 0 auto;
+          width: 70vw;
+          height: auto;
+      }
+
+      .row2{
+          width: fit-content;
+          margin-left: auto;
+          margin-right: auto;
+          height: auto;
+      }
+
+      #tekst-formular {
+        display: none;
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: auto;
+        height: auto;
+    }
+
+    #kontakth1 h1 {
+        text-align: center;
+    }
+
+
+  }
+ 
+/* ------------------- GOOGLE MAPS ---------------*/
+
+#roundtable {
+    background-color: #215DAB;
+    width: 30%;
+    margin: auto;
+    -webkit-border-top-left-radius: 30px;
+-webkit-border-top-right-radius: 30px;
+-moz-border-radius-topleft: 30px;
+-moz-border-radius-topright: 30px;
+border-top-left-radius: 30px;
+border-top-right-radius: 30px;
+}
+
+#line {
+    height: 40px;
+    background-color: #215DAB;
+}
+
+
+.findosher {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.098);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 50px; 
+    margin-bottom: -10px; 
+    letter-spacing: 3px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+}
+
+.iframe {
+    margin-top: 50px;
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 0px;
+    box-shadow: 0px -20px 50px rgba(0, 0, 0, 0.146);
+    height: auto;
+}
+
+@media only screen and (max-width: 980px) {
+    .iframe {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+    }
+    #roundtable {
+        width: 100%;
+        height: auto;
+     }
+}
+
+/* ------------footer på com--------------------- */
+footer {
+    z-index: 2;
+    position: absolute;
+    margin-top: -130px;
+    filter: drop-shadow(10px 1px 10px rgba(0, 0, 0, 0.261));
+}
+
+footer #pc_footer {
+    width: 100%;
+    height: auto;
+}
+
+#mobile_footer {
+    display: none;
+}
+
+#bg_farve {
+    padding-top: 100px;
+    margin-top: -10px;
+    background-color: #215DAB;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5%;
+}
+
+#bg_farve p {
+    color:white; 
+}
+
+#bg_farve h2{
+    color:white; 
+}
+
+#rightsreserved {
+    margin-top: -70px;
+}
+
+@media only screen and (max-width: 1400px) {
+    #rightsreserved {
+        margin-top: 50px;
+    }
+}
+
+
+ /* kolonnerne i footeren får samme størrelse*/
+#socials, #copyright, #footer_indhold {
+width: 33%;
+height: auto;
+
+}
+
+#socials {
+    text-align: right;
+}
+
+#socials i{
+   color: white;
+   letter-spacing: 10px;
+   font-size: 40px;
+}
+
+@media only screen and (max-width: 980px){
+
+    .menu-btn{
+        display: block;
+        z-index: 999;
+        }
+    .navbar .menu{
+        position: fixed;
+        height: 112vh;
+        width: 100%;
+        left: -120%;
+        top: 0;
+        background: #89b3cf;
+        text-align: center;
+        padding-top: 80px;
+        transition: all 0.3s ease;
+        display: flex;
+    flex-direction: column;
+    }
+    .navbar .menu.active{
+        left: 0;
+    }
+    .navbar .menu li{
+        display: block;
+        font-weight: 500;
+
+    }
+    .navbar .menu li a{
+        display: row;
+        margin: 20px 0;
+        font-size: 25px;
+    }
+
+    
+    /* VIS MOBIL LOGO */
+    .pc {
+        display: none;
+    }
+
+    .mobil {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: block;
+        filter: drop-shadow(5px 5px 5px rgba(34, 34, 34, 0.249)); 
+    }
+
+    .sticky{
+       display: block;
+    }
+
+    .logonav {
+        margin-left: -70px;
+    }
+    .logo img{
+        width:100px;
+        height: auto;
+    }
+
+    .menu {
+        font-size: 10px!important;
+    }
+}
+
+
+@media only screen and (max-width: 800px) {
+    /* Vise mindre footer på mobil */
+    footer #pc_footer {
+        display: none;
+    }
+
+    footer #mobile_footer {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    #footer_indhold {
+        text-align: center;
+        width: 100%;
+        height: auto;
+    }
+
+    #copyright, #socials {
+        width: 100%;
+        text-align: center;
+        padding: 3%;
+    }
+    
+    .max-width{
+        max-width: 930px;
+        height: auto;
+    }
+   
+    #findosher {
+        width: 100%; 
+        height: auto;
+    }
+    .container {
+        width: 100%;
+        height: auto;
+    }
+    #iframe {
+        width: 100%;
+        height: auto;
+      
+    }
+
+    /*skjul thumbnails af galleriet og gør selve billedet større*/
+    .row{
+        display:none;
+    }
+    
+    }
+
+}

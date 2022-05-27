@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700|Oswald);
+
+/* Prevent blinking bugging in chrome */
+* {
+  -webkit-backface-visibility: hidden;
+}
+
+
+/* SVG coloring */
+
+.st0, .st1 {
+  fill:#ef09c9;
+}
+
+/* Button start */
+
+.btn {
+  width:220px; height:60px;
+  background-color:#ef09c9;
+  border-radius:60px;
+  padding-left:15px;
+  margin:50px auto;
+  cursor:pointer;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+
+}
+
+/* Button text */
+
+.cta {
+  top:20px;
+  left:67.5px;
+  z-index:2;
+  position:absolute;
+  color:#FFF;
+  font-family: 'OpenSans', sans-serif;
+  text-transform:uppercase;
+  font-weight:600;
+  font-smoothing:antialiased;
+  font-size:1em;
+  letter-spacing:.02em;
+}
+
+
+/* DROPS START */
+
+.dropsStart {
+  top:60px;
+  position:absolute;
+  transform-origin:50% 0%;
+  transform:scaleY(0);
+  transition:all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+
+}
+
+.btn:hover > .dropsStart{
+  transform-origin:50% 0%;
+  transform:scaleY(1);
+  transition-duration: 600ms;
+  
+}
+
+/* DROPS START END */
+
+
+/* DROPS */
+
+.drops {
+  top:0;
+  position:absolute;
+  transition:all 450ms cubic-bezier(0.23, 1, 0.32, 1);
+
+
+}
+
+.btn:hover > .drops{
+  top:40px;
+  transition:all 700ms cubic-bezier(0.23, 1, 0.32, 1);
+  
+}
+
+/* DROPS END */
